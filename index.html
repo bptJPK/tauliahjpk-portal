@@ -2,10 +2,389 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <title>Portal Tauliah JPK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Tauliah JPK - Hab Aplikasi & Rujukan</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #102a43;
+            --primary-blue: #1e3a8a;
+            --accent-blue: #2563eb;
+            --hover-blue: #1d4ed8;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --border-subtle: #e2e8f0;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --badge-bg: #f1f5f9;
+            --badge-text: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar */
+        .top-navbar {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-icon-badge {
+            height: 40px;
+            width: 40px;
+            border-radius: 10px;
+            background: #eff6ff;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            border: 1px solid #bfdbfe;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary-navy);
+            line-height: 1.2;
+        }
+
+        .brand-title span {
+            color: #d97706; /* Gold accent */
+        }
+
+        .brand-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Main Workspace Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: -0.5px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 0.35rem;
+        }
+
+        /* 3-Column Grid */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        @media (max-width: 960px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .column-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .column-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+            margin-bottom: 1.25rem;
+        }
+
+        .column-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Icon Colors */
+        .col-umum .column-icon-box { background: #e0f2fe; color: #0284c7; }
+        .col-slapb .column-icon-box { background: #fef3c7; color: #d97706; }
+        .col-adi .column-icon-box { background: #dbeafe; color: #2563eb; }
+
+        .column-header-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Menu Item List */
+        .menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            flex: 1;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.85rem 1rem;
+            text-decoration: none;
+            color: var(--text-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .menu-link i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .menu-link:hover {
+            background: #eff6ff;
+            color: var(--accent-blue);
+            border-color: #bfdbfe;
+            transform: translateX(4px);
+        }
+
+        .menu-link:hover i {
+            color: var(--accent-blue);
+        }
+
+        /* Special active card styling */
+        .menu-link.active-app {
+            background: #ffffff;
+            border: 1.5px solid #93c5fd;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.08);
+            color: var(--primary-blue);
+        }
+
+        .menu-link.active-app i {
+            color: #2563eb;
+        }
+
+        .badge-status {
+            font-size: 0.72rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .badge-upcoming {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+        }
+
+        .badge-online {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+
+        /* Bottom Footer */
+        .footer-banner {
+            background: #ffffff;
+            border-top: 1px solid var(--border-subtle);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <h1>Portal Aplikasi Tauliah JPK</h1>
-    <p><a href="/kalkulatorADI">Buka Kalkulator ADI</a></p>
+
+    <!-- Top Navbar Ringkas (Tanpa Logo Gambar & Tanpa Menu Navigasi) -->
+    <header class="top-navbar">
+        <a href="/" class="brand-container">
+            <div class="brand-icon-badge">
+                <i class="fa-solid fa-shapes"></i>
+            </div>
+            <div class="brand-text">
+                <div class="brand-title">TAULIAH <span>JPK</span></div>
+                <div class="brand-sub">Sistem Pengurusan & Alatan Latihan</div>
+            </div>
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Portal Aplikasi & Rujukan Tauliah JPK</h1>
+        </div>
+
+        <section class="portal-grid">
+
+            <!-- Kolum 1: UMUM -->
+            <div class="column-card col-umum">
+                <div class="column-header">
+                    <div class="column-icon-box"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="column-title">UMUM</div>
+                </div>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Kalkulator Tauliah</span>
+                            <span class="badge-status badge-upcoming">Akan Datang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span>Pengumuman 1</span>
+                            <span class="badge-status badge-upcoming">Akan Datang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span>Pengumuman 2</span>
+                            <span class="badge-status badge-upcoming">Akan Datang</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Kolum 2: SLaPB -->
+            <div class="column-card col-slapb">
+                <div class="column-header">
+                    <div class="column-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="column-title">SLaPB</div>
+                </div>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-file-circle-check"></i>
+                            <span>Instrumen COPTPA</span>
+                            <span class="badge-status badge-upcoming">Akan Datang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <span>Pengumuman</span>
+                            <span class="badge-status badge-upcoming">Akan Datang</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Kolum 3: ADI -->
+            <div class="column-card col-adi">
+                <div class="column-header">
+                    <div class="column-icon-box"><i class="fa-solid fa-calculator"></i></div>
+                    <div class="column-title">ADI</div>
+                </div>
+                <ul class="menu-list">
+                    <li>
+                        <!-- Pautan ke Kalkulator ADI -->
+                        <a href="/kalkulatorADI" class="menu-link active-app">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Kalkulator ADI</span>
+                            <span class="badge-status badge-online">Aktif</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <span>Proses Kerja</span>
+                            <span class="badge-status badge-upcoming">Akan Datang</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer Ringkas (Tanpa Imej Banner) -->
+    <footer class="footer-banner">
+        <div class="footer-note">
+            @Bahagian Pentauliahan, BPT / JPK
+        </div>
+    </footer>
+
 </body>
 </html>
