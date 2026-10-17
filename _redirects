@@ -1,2 +1,5 @@
-/   /kalkulatorADI   302
 /kalkulatorADI/*   https://kalkulatoradi.netlify.app/:splat   200
+/kalkulatorADI     https://kalkulatoradi.netlify.app/         200
+
+/kalkulator/*      https://kalkulator-tauliahjpk.netlify.app/:splat   200
+/kalkulator        https://kalkulator-tauliahjpk.netlify.app/         200
