@@ -176,7 +176,8 @@
         .col-slapb .column-icon-box { background: #fef3c7; color: #d97706; }
         .col-adi .column-icon-box { background: #dbeafe; color: #2563eb; }
 
-        .column-header-title {
+        .column-header-title,
+        .column-title {
             font-size: 1.15rem;
             font-weight: 800;
             color: var(--primary-navy);
@@ -252,7 +253,8 @@
             color: var(--badge-text);
         }
 
-        .badge-online {
+        .badge-online,
+        .badge-active {
             background-color: #dcfce7;
             color: #15803d;
         }
@@ -275,7 +277,7 @@
 </head>
 <body>
 
-    <!-- Top Navbar Ringkas (Tanpa Logo Gambar & Tanpa Menu Navigasi) -->
+    <!-- Top Navbar Ringkas -->
     <header class="top-navbar">
         <a href="/" class="brand-container">
             <div class="brand-icon-badge">
@@ -292,6 +294,7 @@
     <main class="main-container">
         <div class="page-header">
             <h1>Portal Aplikasi & Rujukan Tauliah JPK</h1>
+            <p>Pilih sistem kalkulator atau instrumen pentauliahan yang berkaitan.</p>
         </div>
 
         <section class="portal-grid">
@@ -304,11 +307,12 @@
                 </div>
                 <ul class="menu-list">
                     <li>
-                    <a href="/kalkulator" class="menu-link">
-                      <i class="fa-solid fa-calculator"></i>
-                      <span>Kalkulator Tauliah</span>
-                      <span class="badge-status badge-active">Aktif</span>
-                    </a>
+                        <!-- Pautan ke Kalkulator Tauliah Utama -->
+                        <a href="/kalkulator" class="menu-link active-app">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Kalkulator Tauliah</span>
+                            <span class="badge-status badge-active">Aktif</span>
+                        </a>
                     </li>
                     <li>
                         <a href="#" class="menu-link">
@@ -379,10 +383,10 @@
         </section>
     </main>
 
-    <!-- Footer Ringkas (Tanpa Imej Banner) -->
+    <!-- Footer Ringkas -->
     <footer class="footer-banner">
         <div class="footer-note">
-            @Bahagian Pentauliahan, BPT / JPK
+            &copy; 2026 Bahagian Pentauliahan, BPT / JPK
         </div>
     </footer>
 
