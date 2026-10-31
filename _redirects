@@ -1,8 +1,10 @@
 /kalkulatorADI/*   https://kalkulatoradi.netlify.app/:splat   200
 /kalkulatorADI     https://kalkulatoradi.netlify.app/         200
 
-/PSPK/*            https://adipk.netlify.app/:splat   200
-/PSPK              https://adipk.netlify.app/         200
+/pspk/*            https://adipk.netlify.app/:splat           200
+/pspk              https://adipk.netlify.app/                 200
+/PSPK/*            https://adipk.netlify.app/:splat           200
+/PSPK              https://adipk.netlify.app/                 200
 
 /kalkulator/*      https://kalkulator-tauliahjpk.netlify.app/:splat   200
 /kalkulator        https://kalkulator-tauliahjpk.netlify.app/         200
