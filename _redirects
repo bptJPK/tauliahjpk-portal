@@ -1,3 +1,5 @@
+/api/noss         https://script.google.com/macros/s/AKfycbyhpqwlzs3SopGhZcqy525nBHalfCg9nbvKSRygrdpAZ5DNvvEbfjBanrnSWieNar8V/exec?action=getData   200!
+
 /kalkulatorADI/*   https://kalkulatoradi.netlify.app/:splat   200
 /kalkulatorADI     https://kalkulatoradi.netlify.app/         200
 
