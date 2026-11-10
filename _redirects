@@ -1,12 +1,16 @@
-/api/noss         https://script.google.com/macros/s/AKfycbyhpqwlzs3SopGhZcqy525nBHalfCg9nbvKSRygrdpAZ5DNvvEbfjBanrnSWieNar8V/exec?action=getData   200!
+# 1. PROXY DATA APPS SCRIPT (Dinamik Query)
+/api/noss   https://script.google.com/macros/s/AKfycbyhpqwlzs3SopGhZcqy525nBHalfCg9nbvKSRygrdpAZ5DNvvEbfjBanrnSWieNar8V/exec   200!
 
+# 2. MODUL PROSES KERJA (PSPK)
+/pspk/*     https://adipk.netlify.app/:splat   200
+/pspk       https://adipk.netlify.app/         200
+/PSPK/*     https://adipk.netlify.app/:splat   200
+/PSPK       https://adipk.netlify.app/         200
+
+# 3. MODUL KALKULATOR ADI
 /kalkulatorADI/*   https://kalkulatoradi.netlify.app/:splat   200
 /kalkulatorADI     https://kalkulatoradi.netlify.app/         200
 
-/pspk/*            https://adipk.netlify.app/:splat           200
-/pspk              https://adipk.netlify.app/                 200
-/PSPK/*            https://adipk.netlify.app/:splat           200
-/PSPK              https://adipk.netlify.app/                 200
-
+# 4. MODUL KALKULATOR TAULIAH
 /kalkulator/*      https://kalkulator-tauliahjpk.netlify.app/:splat   200
 /kalkulator        https://kalkulator-tauliahjpk.netlify.app/         200
