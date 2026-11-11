@@ -14,3 +14,7 @@
 # 4. MODUL KALKULATOR TAULIAH
 /kalkulator/*      https://kalkulator-tauliahjpk.netlify.app/:splat   200
 /kalkulator        https://kalkulator-tauliahjpk.netlify.app/         200
+
+# 5. MAPPING AGENSI
+/mapping/*     https://nossmap.netlify.app/:splat   200
+/mapping       https://nossmap.netlify.app/         200
